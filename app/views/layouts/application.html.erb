@@ -12,9 +12,24 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="relative bg-gray-200 h-full">
   <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
+    <div class="page-content pt-6 h-full">
+      <div class="container mx-auto flex h-full">
+        <div class="left w-8/12 pr-4">
+          <%= render "shared/stories" %>
+        </div>
+          <%= render "shared/feeds" %>
+          <div class="right w-4/12 h-screen overflow-visible h-full">
+			      <div class="first fixed pl-4 w-full" style="top:85px;  max-width: 293px;">
+              <%= render "shared/profile" %>
+              <%= render "shared/suggestions" %>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <%= render "shared/flashes" %>
     <%= yield %>
   </body>
 </html>
